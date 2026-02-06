@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌍 Science Quiz for Kids!</title>
+  <!-- Google Fonts - Playful fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bubblegum Sans', 'Fredoka', cursive;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #2d3748;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      padding: 40px 30px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .emoji-banner {
+      font-size: 3.5em;
+      margin-bottom: 15px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+      font-weight: 700;
+      font-family: 'Bubblegum Sans', 'Fredoka', cursive;
+    }
+
+    .header .emoji {
+      font-size: 3em;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    /* Login Section Styles */
+    #accessSection {
+      text-align: center;
+    }
+
+    #fileDisplay {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #667eea;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    #accessSection h2 {
+      font-size: 1em;
+      color: #4a5568;
+      margin-bottom: 20px;
+      font-family: 'Fredoka', cursive;
+    }
+
+    .password-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    #codeInput {
+      font-size: 18px;
+      padding: 15px 50px 15px 20px;
+      width: 300px;
+      border-radius: 15px;
+      border: 3px solid #667eea;
+      font-family: 'Fredoka', cursive;
+      transition: all 0.3s;
+    }
+
+    #codeInput:focus {
+      outline: none;
+      border-color: #f5576c;
+      box-shadow: 0 0 15px rgba(245, 87, 108, 0.3);
+    }
+
+    #toggleEye {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 24px;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    #toggleEye:hover {
+      transform: translateY(-50%) scale(1.2);
+    }
+
+    .btn {
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      font-family: 'Bubblegum Sans', 'Fredoka', cursive;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      background: #cbd5e0;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    }
+
+    .btn-warning {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      color: #2d3748;
+    }
+
+    #contactLink {
+      display: inline-block;
+      margin-top: 10px;
+      color: #667eea;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    #contactLink:hover {
+      color: #f5576c;
+      transform: scale(1.05);
+    }
+
+    #message {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #e53e3e;
+    }
+
+    #tipsArea {
+      margin-top: 25px;
+      padding: 20px;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      border-radius: 15px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #2d3748;
+      text-align: left;
+    }
+
+    /* Main Content Styles */
+    #mainContent h1 {
+      font-size: 2.2em;
+      color: #667eea;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Bubblegum Sans', 'Fredoka', cursive;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Reviewer Section */
+    .reviewer details {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      margin-bottom: 15px;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 4px solid transparent;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .reviewer details::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .reviewer details:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      border-color: #667eea;
+    }
+
+    .reviewer details:hover::before {
+      opacity: 1;
+    }
+
+    .reviewer summary {
+      padding: 20px;
+      font-size: 1.3em;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.5);
+      transition: all 0.3s;
+      color: #2d3748;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reviewer summary:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .reviewer ul {
+      padding: 20px 40px;
+      list-style-type: none;
+    }
+
+    .reviewer li {
+      padding: 10px 0;
+      font-size: 1.1em;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .reviewer li::before {
+      content: "🌟";
+      position: absolute;
+      left: 0;
+      font-size: 1.2em;
+    }
+
+    .reviewer strong {
+      color: #667eea;
+    }
+
+    /* Quiz Section */
+    .question {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      border: 3px solid #f5576c;
+    }
+
+    .question p {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #2d3748;
+    }
+
+    .question label {
+      display: block;
+      padding: 12px;
+      margin: 8px 0;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.1em;
+    }
+
+    .question label:hover {
+      background: #fed6e3;
+      transform: translateX(5px);
+    }
+
+    input[type="radio"] {
+      transform: scale(1.5);
+      margin-right: 15px;
+      cursor: pointer;
+    }
+
+    .correct {
+      color: #38a169;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    .wrong {
+      color: #e53e3e;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    .correct::before {
+      content: "✨ ";
+    }
+
+    .wrong::before {
+      content: "💡 ";
+    }
+
+    #result {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    #result h2 {
+      font-size: 2.5em;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-buttons {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #finishBtn {
+      font-size: 2em;
+      padding: 20px 50px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    /* Contact Modal */
+    #contactModalBG {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+
+    #contactModal {
+      background: white;
+      width: 90%;
+      max-width: 500px;
+      max-height: 85vh;
+      margin: 40px auto;
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+    }
+
+    #contactModal h2 {
+      margin-top: 0;
+      font-size: 1.8em;
+      text-align: center;
+      color: #667eea;
+      margin-bottom: 25px;
+    }
+
+    #contactModal label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #4a5568;
+      font-size: 1.1em;
+    }
+
+    #contactModal input,
+    #contactModal textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #cbd5e0;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: 'Fredoka', cursive;
+      transition: all 0.3s;
+    }
+
+    #contactModal input:focus,
+    #contactModal textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+    }
+
+    #contactModal textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.8em;
+      }
+
+      #codeInput {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* Loading animation */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-content">
+        <div class="emoji-banner">🌍 🔬 ⚗️</div>
+        <h1>Story Adventure!</h1>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="accessSection">
+        <p id="fileDisplay"></p>
+        <h2>🔐 Enter Access Code: '12345'</h2>
+        
+        <div class="password-container">
+          <input type="password" id="codeInput" placeholder="Type your code here...">
+          <span id="toggleEye">👁️</span>
+        </div>
+        
+        <br>
+        <button type="button" id="accessSubmit" class="btn btn-primary">Login</button>
+
+        <div>
+          <span id="contactLink">📧 Need Help? Contact Us!</span>
+        </div>
+
+        <p id="message" aria-live="polite"></p>
+        <div id="tipsArea">Loading tips...</div>
+      </div>
+
+      <div id="mainContent" style="display:none;">
+        <div id="reviewerSection">
+          <h1>🌟 Story Review 🌟<br>The First Monkey</h1>
+     
+          <section class="reviewer">
+          
+          
+            <!-- ==================== START OF REVIEWER ==================== -->
+            
+<section>
+  <h2>📖 Story Reviewer</h2>
+
+  <details>
+    <summary>⏳ Story Time & Place</summary>
+    <ul>
+      <li>🕰️ The story happened a <strong>long time ago</strong>.</li>
+      <li>👨‍🌾 There was a farmer with a <strong>wide corn field</strong>.</li>
+      <li>🌽 He grew <strong>big and sweet corn</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>😟 The Problem</summary>
+    <ul>
+      <li>🌽 Some corn plants had <strong>no more fruits</strong>.</li>
+      <li>🕵️ The corn was <strong>stolen</strong>.</li>
+      <li>🎯 The farmer wanted to <strong>catch the thief</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>🧠 The Farmer’s Plan</summary>
+    <ul>
+      <li>🌳 The farmer hid <strong>behind a big mango tree</strong>.</li>
+      <li>🪵 He carried a <strong>stick</strong>.</li>
+      <li>👀 He carefully <strong>watched the corn field</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>🚶 The Thief Appears</summary>
+    <ul>
+      <li>👨 A <strong>man</strong> came into the corn field.</li>
+      <li>🚧 He entered through a <strong>broken fence</strong>.</li>
+      <li>🌽 He began to <strong>pick some corn</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>🏃 The Chase</summary>
+    <ul>
+      <li>😱 The man <strong>ran away</strong> when he saw the farmer.</li>
+      <li>🏃‍♂️ The farmer <strong>ran after him</strong>.</li>
+      <li>❌ The farmer <strong>could not catch</strong> the man.</li>
+      <li>🪵 The farmer <strong>threw the stick</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>✨ The Magic Change</summary>
+    <ul>
+      <li>🎯 The stick hit the man’s <strong>back</strong>.</li>
+      <li>🐒 The stick <strong>became a tail</strong>.</li>
+      <li>🌴 The man <strong>climbed a tree</strong>.</li>
+      <li>🔽 He became <strong>smaller and smaller</strong>.</li>
+      <li>🐵 The man <strong>turned into a monkey</strong>.</li>
+    </ul>
+  </details>
+</section>
+            
+            
+            <!-- ==================== END OF REVIEWER ==================== -->
+          </section>
+     
+          <button onclick="showQuiz()" class="btn btn-success">🎯 Start Quiz!</button>
+        </div>
+
+        <div id="quizSection" style="display:none;">
+          <h1>📝 Quiz Time! 📝<br>The First Monkey Story</h1>
+          <p style="font-size: 18px; font-weight: 600; margin: 0 0 20px 0; text-align: center; color: #667eea;">
+            Multiple-Choice Quiz (random items)
+          </p>
+          <form id="quizForm"></form>
+
+          <div class="nav-buttons">
+            <button id="finishBtn" class="btn">🏆 Get Score</button>
+            <button type="button" onclick="refreshQuiz()" class="btn btn-warning">🔄 Restart Quiz</button>
+            <button type="button" onclick="backToReviewer()" class="btn btn-primary">📚 Back to Review</button>
+          </div>
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT POPUP MODAL -->
+  <div id="contactModalBG">
+    <div id="contactModal">
+      <h2>📬 Contact Form</h2>
+      <p style="text-align: center; margin-bottom: 20px; color: #4a5568;">
+        Fill in your details and we'll contact you soon!
+      </p>
+
+      <label>👤 Name:</label>
+      <input id="c_name" type="text">
+
+      <label>📱 Contact No.:</label>
+      <input id="c_contact" type="text">
+
+      <label>💬 Social Media Account:</label>
+      <input id="c_social" type="text">
+
+      <label>✉️ Request / Comment:</label>
+      <textarea id="c_request"></textarea>
+
+      <button id="c_submit" class="btn btn-success" style="width: 100%;">Send Message</button>
+      <button id="c_close" class="btn" style="width: 100%; background: #718096;">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // ==================== GOOGLE APPS SCRIPT CONFIGURATION ====================
+    // IMPORTANT: Replace this URL with your deployed Google Apps Script web app URL
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDvvheKuMWsJiQ0hKdQt8V3WX6gyoMwngNQvis3JJS24I8StyiT7U8L2alwiOtJKb7/exec";
+    // After deploying the Apps Script, paste the web app URL above
+
+    // ==================== HELPER FUNCTIONS ====================
+    document.addEventListener("DOMContentLoaded", () => {
+      // ===== SHOW / HIDE PASSWORD TOGGLE =====
+      const toggleEye = document.getElementById("toggleEye");
+      const codeInputEye = document.getElementById("codeInput");
+
+      toggleEye.addEventListener("click", () => {
+        if (codeInputEye.type === "password") {
+          codeInputEye.type = "text";
+          toggleEye.textContent = "🙈";
+        } else {
+          codeInputEye.type = "password";
+          toggleEye.textContent = "👁️";
+        }
+      });
+
+      // ===== Display filename on login page =====
+      const quizTitleEl = document.querySelector("#quizSection h1");
+      const displayFileName = quizTitleEl ? quizTitleEl.textContent.replace("Quiz Time! 📝", "").replace("📝", "").trim() : "Science Grade 6";
+      const fileDisplay = document.getElementById("fileDisplay");
+      if (fileDisplay) fileDisplay.textContent = displayFileName;
+
+      // ===== ELEMENTS =====
+      const accessSection = document.getElementById("accessSection");
+      const mainContent = document.getElementById("mainContent");
+      const codeInput = document.getElementById("codeInput");
+      const accessSubmit = document.getElementById("accessSubmit");
+      const message = document.getElementById("message");
+      const tipsArea = document.getElementById("tipsArea");
+
+      // ===============================
+      // CONTACT MODAL LOGIC
+      // ===============================
+      const contactLink = document.getElementById("contactLink");
+      const contactBG = document.getElementById("contactModalBG");
+      const contactClose = document.getElementById("c_close");
+      const contactSubmit = document.getElementById("c_submit");
+
+      if (contactLink && contactBG) {
+        contactLink.addEventListener("click", () => {
+          contactBG.style.display = "block";
+        });
+      }
+
+      if (contactClose && contactBG) {
+        contactClose.addEventListener("click", () => {
+          contactBG.style.display = "none";
+        });
+      }
+
+      // ===============================
+      // CONTACT SUBMISSION LOGIC
+      // ===============================
+      if (contactSubmit) {
+        contactSubmit.addEventListener("click", async () => {
+          const name = document.getElementById("c_name").value.trim();
+          const contact = document.getElementById("c_contact").value.trim();
+          const social = document.getElementById("c_social").value.trim();
+          const request = document.getElementById("c_request").value.trim();
+
+          if (!name || !contact || !request) {
+            alert("Please fill out name, contact, and request/comment.");
+            return;
+          }
+
+          const quizTitleElLocal = document.querySelector("#quizSection h1");
+          const fileName = quizTitleElLocal
+            ? quizTitleElLocal.textContent.replace("Quiz Time! 📝", "").replace("📝", "").trim()
+            : "Science Grade 6";
+
+          const deviceInfo = await getDeviceInfo();
+
+          try {
+            contactSubmit.disabled = true;
+            contactSubmit.innerHTML = '<span class="loading"></span> Sending...';
+
+            await fetch(GOOGLE_SCRIPT_URL, {
+              method: "POST",
+              redirect: 'follow',
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: JSON.stringify({
+                action: "saveContact",
+                data: {
+                  event: "Client Request",
+                  request,
+                  name,
+                  contact,
+                  social,
+                  filename: fileName,
+                  timestamp: new Date().toLocaleString(),
+                  device: deviceInfo
+                }
+              })
+            });
+
+            alert("✅ Message sent successfully!");
+            contactBG.style.display = "none";
+            
+            // Clear form
+            document.getElementById("c_name").value = "";
+            document.getElementById("c_contact").value = "";
+            document.getElementById("c_social").value = "";
+            document.getElementById("c_request").value = "";
+
+          } catch (err) {
+            alert("❌ Error sending message. Please try again.");
+            console.error(err);
+          } finally {
+            contactSubmit.disabled = false;
+            contactSubmit.textContent = "Send Message";
+          }
+        });
+      }
+
+      // ===== DEVICE INFO HELPER =====
+      async function getDeviceInfo() {
+        const uaData = navigator.userAgentData || {};
+        const ua = navigator.userAgent;
+        const platform = navigator.platform;
+        const language = navigator.language;
+        const screenResolution = `${window.screen.width}x${window.screen.height}`;
+        const browserVersion = uaData.brands
+          ? uaData.brands.map(b => `${b.brand} ${b.version}`).join(", ")
+          : ua;
+
+        const uaLower = ua.toLowerCase();
+        let deviceType = "desktop";
+        if (/mobi|iphone|android/i.test(uaLower)) {
+          deviceType = "mobile";
+        } else if (/tablet|ipad|nexus 7|nexus 10/i.test(uaLower)) {
+          deviceType = "tablet";
+        }
+
+        let networkInfo = "Unavailable";
+        try {
+          const res = await fetch("https://ipapi.co/json/");
+          if (res.ok) {
+            const info = await res.json();
+            networkInfo = {
+              ip: info.ip,
+              city: info.city,
+              region: info.region,
+              country: info.country_name,
+              org: info.org
+            };
+          }
+        } catch {
+          networkInfo = "Network lookup failed";
+        }
+
+        return {
+          ua,
+          browserVersion,
+          platform,
+          language,
+          screenResolution,
+          deviceType,
+          networkInfo
+        };
+      }
+
+      // ===== SAVE LOGIN TO GOOGLE SHEETS =====
+      async function saveLoginToGoogleSheets(codeUsed) {
+        try {
+          console.log('=== SAVING LOGIN DATA ===');
+          console.log('Access Code:', codeUsed);
+          
+          const quizTitleElLocal = document.querySelector("#quizSection h1");
+          const fileName = quizTitleElLocal 
+            ? quizTitleElLocal.textContent.replace("Quiz Time! 📝", "").replace("📝", "").trim() 
+            : "Science Grade 6";
+
+          const deviceInfo = await getDeviceInfo();
+          
+          const payload = {
+            action: "saveLogin",
+            data: {
+              event: "Login Access",
+              studentName: "",
+              accessCode: codeUsed,
+              filename: fileName,
+              timestamp: new Date().toLocaleString(),
+              device: deviceInfo
+            }
+          };
+          
+          console.log('Payload to send:', JSON.stringify(payload, null, 2));
+
+          const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            redirect: 'follow',
+            headers: { 
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          console.log(`✅ Login logged successfully (file: ${fileName}).`);
+          const responseData = await response.json();
+          console.log('Server response:', responseData);
+        } catch (err) {
+          console.error("❌ Error logging to Google Sheets:", err);
+          // Don't show error to user - logging is not critical
+        }
+      }
+
+      // ===== LOAD TIPS FROM GOOGLE SHEETS =====
+      async function loadTips() {
+        try {
+          // First check if URL is configured
+          if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+            tipsArea.innerHTML = 
+              "⚠️ <strong>Configuration Required:</strong><br>" +
+              "Please set up your Google Apps Script URL in the HTML file.<br>" +
+              "See SETUP_GUIDE.md for instructions.";
+            return;
+          }
+
+          const resp = await fetch(`${GOOGLE_SCRIPT_URL}?action=getTips`, {
+            method: 'GET',
+            redirect: 'follow'
+          });
+          
+          if (!resp.ok) {
+            throw new Error(`HTTP error! status: ${resp.status}`);
+          }
+          
+          const data = await resp.json();
+          
+          if (data.error) {
+            throw new Error(data.error);
+          }
+          
+          const tipsText = data.tips || 
+            "💡 <strong>Tips:</strong><br>" +
+            "✅ Press Enter after typing the code.<br>" +
+            "✅ Stay online when entering.<br>" +
+            "✅ For help, contact: @Rekz Banz";
+          
+          tipsArea.innerHTML = tipsText;
+        } catch (err) {
+          console.error("Tips fetch error:", err);
+          tipsArea.innerHTML = 
+            "⚠️ <strong>Connection Error:</strong><br>" +
+            "Could not connect to Google Sheets.<br>" +
+            `Error: ${err.message}<br>` +
+            "Please check:<br>" +
+            "1. Google Script URL is correct<br>" +
+            "2. Script is deployed as Web App<br>" +
+            "3. Access is set to 'Anyone'";
+        }
+      }
+      loadTips();
+
+      // ===== SAVE QUIZ SCORE TO GOOGLE SHEETS =====
+      async function saveScoreToGoogleSheets(score, total) {
+        try {
+          console.log('=== SAVING SCORE DATA ===');
+          console.log('Score:', score, '/', total);
+          
+          const quizTitleElLocal = document.querySelector("#quizSection h1");
+          const fileName = quizTitleElLocal 
+            ? quizTitleElLocal.textContent.replace("Quiz Time! 📝", "").replace("📝", "").trim() 
+            : "Science Grade 6";
+
+          const deviceInfo = await getDeviceInfo();
+          
+          const payload = {
+            action: "saveScore",
+            data: {
+              event: "Quiz Score",
+              studentName: "",
+              score: `${score}/${total}`,
+              filename: fileName,
+              timestamp: new Date().toLocaleString(),
+              device: deviceInfo
+            }
+          };
+          
+          console.log('Payload to send:', JSON.stringify(payload, null, 2));
+
+          const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            redirect: 'follow',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: JSON.stringify(payload)
+          });
+
+          console.log("✅ Quiz score saved to Google Sheets successfully.");
+          const responseData = await response.json();
+          console.log('Server response:', responseData);
+        } catch (err) {
+          console.error("❌ Error saving quiz score:", err);
+          // Don't show error to user - logging is not critical
+        }
+      }
+
+      // ===== LOCAL STORAGE =====
+      const fileName = window.location.pathname.split("/").pop() || "default";
+      const storageKey = "savedAccessCode_" + fileName.replace(/\W+/g, "_");
+      const savedCode = localStorage.getItem(storageKey);
+      if (savedCode) codeInput.value = savedCode;
+      codeInput.addEventListener("input", () =>
+        localStorage.setItem(storageKey, codeInput.value)
+      );
+
+      // ===== LOGIN HANDLER =====
+      codeInput.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") accessSubmit.click();
+      });
+
+      accessSubmit.addEventListener("click", async () => {
+        const input = codeInput.value.trim();
+        
+        if (!input) {
+          message.textContent = "⚠️ Please enter the access code.";
+          return;
+        }
+
+        // Check if URL is configured
+        if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+          message.innerHTML = "⚠️ <strong>Setup Required:</strong><br>Google Apps Script URL not configured. See SETUP_GUIDE.md";
+          return;
+        }
+
+        accessSubmit.disabled = true;
+        codeInput.disabled = true;
+        message.innerHTML = '<span class="loading"></span> Checking...';
+
+        try {
+          console.log('Fetching access code from:', GOOGLE_SCRIPT_URL);
+          
+          const resp = await fetch(`${GOOGLE_SCRIPT_URL}?action=getAccessCode`, {
+            method: 'GET',
+            redirect: 'follow'
+          });
+          
+          console.log('Response status:', resp.status);
+          
+          if (!resp.ok) {
+            throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
+          }
+          
+          const data = await resp.json();
+          console.log('Response data:', data);
+
+          if (data.error) {
+            throw new Error(data.error);
+          }
+
+          const remoteCode = data.accessCode;
+
+          if (!remoteCode) {
+            message.innerHTML = "❌ Access code not found in Google Sheets.<br>Please check the AccessCode sheet.";
+            throw new Error("No accessCode in response");
+          }
+
+          if (input === String(remoteCode).trim()) {
+            accessSection.style.display = "none";
+            mainContent.style.display = "block";
+            message.textContent = "";
+            saveLoginToGoogleSheets(input);
+            setTimeout(() => {
+              const btn = document.querySelector("#mainContent button");
+              if (btn) btn.focus();
+            }, 100);
+          } else {
+            message.innerHTML = `❌ Wrong code. Entered: "${input}"<br>Please contact support.`;
+            localStorage.removeItem(storageKey);
+            accessSubmit.disabled = false;
+            codeInput.disabled = false;
+          }
+        } catch (err) {
+          console.error("Access fetch error:", err);
+          message.innerHTML = 
+            `❌ <strong>Connection Error:</strong><br>` +
+            `${err.message}<br>` +
+            `Please verify:<br>` +
+            `1. Google Script URL is correct<br>` +
+            `2. Script is deployed as Web App<br>` +
+            `3. Access permission is 'Anyone'`;
+          accessSubmit.disabled = false;
+          codeInput.disabled = false;
+        }
+      });
+
+      // ===== QUIZ LOGIC =====
+      const pool = [
+      
+      
+ <!-- ==================== START OF QUIZ ==================== -->
+
+  {
+    q: "When did the story happen?",
+    choices: ["A long time ago", "Last year", "Yesterday", "In the future", "A few months ago", "Today"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the farmer own?",
+    choices: ["A wide corn field", "A rice field", "A mango farm", "A vegetable garden", "A camote field", "A sugarcane field"],
+    correctIndex: 0
+  },
+  {
+    q: "What kind of corn did the farmer grow?",
+    choices: ["Big and sweet", "Small and sweet", "Dry and hard", "Bitter and small", "Sweet and yellow", "Soft and white"],
+    correctIndex: 0
+  },
+  {
+    q: "What problem did the farmer notice?",
+    choices: ["Some corn fruits were gone", "The soil was dry", "The fence was new", "The trees fell down", "The corn dried up", "The corn was rotten"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the farmer want to do?",
+    choices: ["Catch the one who stole his corn", "Sell his corn", "Burn the field", "Plant rice", "Build a house", "Leave the farm"],
+    correctIndex: 0
+  },
+  {
+    q: "Where did the farmer hide?",
+    choices: ["Behind a big mango tree", "Inside his house", "Behind a guava tree", "Under the corn plants", "On top of the fence", "Beside the river"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the farmer carry while hiding?",
+    choices: ["A stick", "A knife", "Some stones", "A rope", "A basket", "A net"],
+    correctIndex: 0
+  },
+  {
+    q: "Who came into the corn field?",
+    choices: ["A man", "A dog", "A monkey", "A farmer", "A child", "A bird"],
+    correctIndex: 0
+  },
+  {
+    q: "How did the man enter the corn field?",
+    choices: ["Through a broken part of the fence", "By climbing a tree", "By digging a hole", "Through the gate", "By jumping over a river", "Through the house"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the man do in the corn field?",
+    choices: ["Picked some corn", "Planted corn", "Watered the plants", "Fixed the fence", "Cut the trees", "Chased animals"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the man do when he saw the farmer?",
+    choices: ["He ran away", "He sat down", "He fought the farmer", "He apologized", "He laughed", "He slept"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the farmer do when he could not catch the man?",
+    choices: ["He threw the stick", "He shouted", "He went home", "He cried", "He climbed a tree", "He sat down"],
+    correctIndex: 0
+  },
+  {
+    q: "Where did the stick hit the man?",
+    choices: ["On his back", "On his head", "On his leg", "On his arm", "On his hand", "On his foot"],
+    correctIndex: 0
+  },
+  {
+    q: "What happened to the stick after it hit the man?",
+    choices: ["It became a tail", "It broke", "It disappeared", "It fell to the ground", "It turned into corn", "It became a rope"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the man do after being hit by the stick?",
+    choices: ["He climbed a tree", "He fell down", "He attacked the farmer", "He hid in the corn", "He ran to the river", "He lay on the ground"],
+    correctIndex: 0
+  },
+  {
+    q: "What happened to the man as he went up the tree?",
+    choices: ["He became smaller and smaller", "He became taller", "He became stronger", "He became older", "He became invisible", "He became weaker"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the man finally turn into?",
+    choices: ["A monkey", "A bird", "A dog", "A corn plant", "A farmer", "A tree"],
+    correctIndex: 0
+  },
+  {
+    q: "What part of the man changed into a tail?",
+    choices: ["His back", "His arm", "His head", "His leg", "His hand", "His foot"],
+    correctIndex: 0
+  },
+  {
+    q: "What fruit was missing from the corn plants?",
+    choices: ["Corn fruits", "Mangoes", "Bananas", "Rice grains", "Camote", "Papaya"],
+    correctIndex: 0
+  },
+  {
+    q: "What kind of tree did the farmer hide behind?",
+    choices: ["Mango tree", "Guava tree", "Coconut tree", "Banana tree", "Apple tree", "Pine tree"],
+    correctIndex: 0
+  },
+  {
+    q: "What was the farmer doing while hiding?",
+    choices: ["Watching the corn field", "Sleeping", "Eating", "Planting seeds", "Repairing the fence", "Catching birds"],
+    correctIndex: 0
+  },
+  {
+    q: "Why did the farmer hide?",
+    choices: ["To catch the thief", "To rest", "To scare birds", "To plant corn", "To water plants", "To fix tools"],
+    correctIndex: 0
+  },
+  {
+    q: "What did the broken fence allow?",
+    choices: ["The man to enter the field", "Animals to escape", "Corn to fall", "Water to flow", "Trees to grow", "Wind to pass"],
+    correctIndex: 0
+  },
+  {
+    q: "What tool did the farmer use against the man?",
+    choices: ["A stick", "A knife", "A rope", "A net", "A stone", "A basket"],
+    correctIndex: 0
+  },
+  {
+    q: "Who could not catch the man?",
+    choices: ["The farmer", "The man", "The monkey", "The tree", "The fence", "The corn"],
+    correctIndex: 0
+  },
+  {
+    q: "Where did the man go after being hit?",
+    choices: ["Up the tree", "Into the house", "Into the river", "Behind the fence", "Under the corn plants", "Beside the farmer"],
+    correctIndex: 0
+  },
+  {
+    q: "What change showed that the man was transforming?",
+    choices: ["He grew a tail", "He lost his voice", "He changed clothes", "He dropped corn", "He stopped running", "He sat down"],
+    correctIndex: 0
+  },
+  {
+    q: "What kind of story element is shown by the man changing form?",
+    choices: ["Transformation", "Harvesting", "Planting", "Cooking", "Trading", "Traveling"],
+    correctIndex: 0
+  },
+  {
+    q: "What animal did the man become at the end?",
+    choices: ["Monkey", "Dog", "Cat", "Bird", "Cow", "Horse"],
+    correctIndex: 0
+  },
+  {
+    q: "What was the farmer protecting?",
+    choices: ["His corn field", "His house", "His animals", "His tools", "His family", "His mango tree"],
+    correctIndex: 0
+  }
+        
+        
+<!-- ==================== END OF QUIZ ==================== -->
+      ];
+
+      // === UPDATE QUIZ TITLE (selected/total items) ===
+      function updateQuizTitleCount(selectedCount) {
+        const quizTitleEl = document.querySelector("#quizSection h1");
+        if (quizTitleEl) {
+          const totalItems = pool.filter(item => item && item.q && item.choices).length;
+          quizTitleEl.innerHTML = `📝 Quiz Time! 📝<br>The First Monkey Story<br><span style="font-size: 0.7em; color: #667eea;">(${selectedCount}/${totalItems} items)</span>`;
+        }
+      }
+
+      function pickRandom(arr, n) {
+        const copy = [...arr];
+        const result = [];
+        while (result.length < n && copy.length > 0) {
+          const idx = Math.floor(Math.random() * copy.length);
+          result.push(copy.splice(idx, 1)[0]);
+        }
+        return result;
+      }
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      function selectRandomChoices(item) {
+        const correctChoice = item.choices[item.correctIndex];
+        let others = item.choices.filter((_, idx) => idx !== item.correctIndex);
+        shuffleArray(others);
+        let selected = [correctChoice, ...others.slice(0, 2)];
+        shuffleArray(selected);
+        item.correctIndex = selected.indexOf(correctChoice);
+        item.choices = selected;
+      }
+
+      let quizItems = [];
+
+      window.showQuiz = function () {
+        document.getElementById("reviewerSection").style.display = "none";
+        document.getElementById("quizSection").style.display = "block";
+        buildQuiz();
+      };
+
+      window.backToReviewer = function () {
+        document.getElementById("quizSection").style.display = "none";
+        document.getElementById("reviewerSection").style.display = "block";
+        document.getElementById("quizForm").innerHTML = "";
+        document.getElementById("result").innerHTML = "";
+      };
+
+      window.refreshQuiz = function () {
+        document.getElementById("quizForm").innerHTML = "";
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("finishBtn").disabled = false;
+        buildQuiz();
+      };
+
+      function buildQuiz() {
+        quizItems = pickRandom(pool, Math.min(10, pool.length));
+        const form = document.getElementById("quizForm");
+        form.innerHTML = "";
+        quizItems.forEach((item, i) => {
+          selectRandomChoices(item);
+          const div = document.createElement("div");
+          div.className = "question";
+          const q = document.createElement("p");
+          q.textContent = `${i + 1}. ${item.q}`;
+          div.appendChild(q);
+          item.choices.forEach((choice, idx) => {
+            const label = document.createElement("label");
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = `q${i}`;
+            radio.value = idx;
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(" " + choice));
+            div.appendChild(label);
+            div.appendChild(document.createElement("br"));
+          });
+          form.appendChild(div);
+        });
+        updateQuizTitleCount(quizItems.length);
+      }
+
+      document.getElementById("finishBtn").addEventListener("click", async function () {
+        let score = 0;
+        const total = quizItems.length;
+        for (let i = 0; i < total; i++) {
+          const radios = document.querySelectorAll(`input[name="q${i}"]`);
+          let selected = -1;
+          radios.forEach(r => { if (r.checked) selected = parseInt(r.value); });
+          const div = document.getElementById("quizForm").children[i];
+          if (selected === quizItems[i].correctIndex) {
+            score++;
+            div.insertAdjacentHTML("beforeend", "<div class='correct'>✔ Correct! Great job!</div>");
+          } else {
+            const correctAnswer = quizItems[i].choices[quizItems[i].correctIndex];
+            div.insertAdjacentHTML("beforeend", `<div class='wrong'>✘ Oops! The answer is: ${correctAnswer}</div>`);
+          }
+          radios.forEach(r => r.disabled = true);
+        }
+        
+        const percentage = Math.round((score / total) * 100);
+        let emoji = "🎉";
+        if (percentage === 100) emoji = "🏆";
+        else if (percentage >= 80) emoji = "⭐";
+        else if (percentage >= 60) emoji = "👍";
+        else emoji = "💪";
+        
+        document.getElementById("result").innerHTML = 
+          `<h2>${emoji} Your Score: ${score} / ${total} ${emoji}</h2>
+           <p style="font-size: 1.5em; margin-top: 10px;">${percentage}% Correct!</p>`;
+        this.disabled = true;
+
+        // Save score to Google Sheets
+        await saveScoreToGoogleSheets(score, total);
+      });
+    });
+  </script>
+</body>
+</html>
