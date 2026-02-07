@@ -1115,7 +1115,7 @@
       async function loadTips() {
         try {
           // First check if URL is configured
-          if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+          if (GOOGLE_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbxDvvheKuMWsJiQ0hKdQt8V3WX6gyoMwngNQvis3JJS24I8StyiT7U8L2alwiOtJKb7/exec") {
             tipsArea.innerHTML = 
               "⚠️ <strong>Configuration Required:</strong><br>" +
               "Please set up your Google Apps Script URL in the HTML file.<br>" +
@@ -1558,6 +1558,7 @@
         document.getElementById("reviewerSection").style.display = "none";
         document.getElementById("quizSection").style.display = "block";
         buildQuiz();
+        window.scrollTo(0, 0)
       };
 
       window.backToReviewer = function () {
@@ -1565,6 +1566,7 @@
         document.getElementById("reviewerSection").style.display = "block";
         document.getElementById("quizForm").innerHTML = "";
         document.getElementById("result").innerHTML = "";
+        window.scrollTo(0, 0)
       };
 
       window.refreshQuiz = function () {
@@ -1572,6 +1574,7 @@
         document.getElementById("result").innerHTML = "";
         document.getElementById("finishBtn").disabled = false;
         buildQuiz();
+        window.scrollTo(0, 0)
       };
 
       function buildQuiz() {
