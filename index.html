@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌍 Rekz Banz- Quiz for Kids!</title>
+  <title>🌍 Science Quiz for Kids!</title>
   <!-- Google Fonts - Playful fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -246,14 +247,21 @@
 
     /* Main Content Styles */
     #mainContent h1 {
-      font-size: 2.2em;
+      font-size: 1.8em;
       color: #667eea;
       margin-bottom: 20px;
       text-align: center;
       font-family: 'Bubblegum Sans', 'Fredoka', cursive;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
-
+#mainContent h2 {
+      font-size: 2em;
+      color: #667eea;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Bubblegum Sans', 'Fredoka', cursive;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
     /* Reviewer Section */
     .reviewer details {
       background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
@@ -481,6 +489,94 @@
       min-height: 100px;
     }
 
+    /* Icon Dancing Animations */
+    .icon {
+      font-size: 1.4em;
+      display: inline-block;
+      animation: dance 1.5s infinite ease-in-out;
+      transform-origin: center bottom;
+    }
+
+    /* Create variations for different icons */
+    .icon:nth-child(2n) {
+      animation: wiggle 2s infinite ease-in-out;
+    }
+
+    .icon:nth-child(3n) {
+      animation: spin 3s infinite linear;
+    }
+
+    .icon:nth-child(4n) {
+      animation: bounce-icon 1.8s infinite ease-in-out;
+    }
+
+    .icon:nth-child(5n) {
+      animation: swing 2.5s infinite ease-in-out;
+    }
+
+    @keyframes dance {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-10px) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(5deg);
+      }
+      75% {
+        transform: translateY(-10px) rotate(-3deg);
+      }
+    }
+
+    @keyframes wiggle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-15deg);
+      }
+      75% {
+        transform: rotate(15deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes bounce-icon {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-15px) scale(1.1);
+      }
+    }
+
+    @keyframes swing {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      20% {
+        transform: rotate(15deg);
+      }
+      40% {
+        transform: rotate(-10deg);
+      }
+      60% {
+        transform: rotate(5deg);
+      }
+      80% {
+        transform: rotate(-5deg);
+      }
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .header h1 {
@@ -554,73 +650,203 @@
 
       <div id="mainContent" style="display:none;">
         <div id="reviewerSection">
-          <h1>🌟 Story Review 🌟<br>The First Monkey</h1>
-     
+          <h1>🌟 Story Review 🌟</h1>
+     <h2>✨ The First Monkey ✨</h2>
           <section class="reviewer">
           
           
             <!-- ==================== START OF REVIEWER ==================== -->
             
-<section>
-  <h2>📖 Story Reviewer</h2>
+<section class="story-box">
 
-  <details>
-    <summary>⏳ Story Time & Place</summary>
-    <ul>
-      <li>🕰️ The story happened a <strong>long time ago</strong>.</li>
-      <li>👨‍🌾 There was a farmer with a <strong>wide corn field</strong>.</li>
-      <li>🌽 He grew <strong>big and sweet corn</strong>.</li>
-    </ul>
-  </details>
+  
+<div class="story-text">
+          <p>
+  <span class="icon">🌾</span> A farmer had a corn field.
+  He was very happy because all his corn plants had many fruits.
+  <span class="icon">🌽</span>
+</p>
 
-  <details>
-    <summary>😟 The Problem</summary>
-    <ul>
-      <li>🌽 Some corn plants had <strong>no more fruits</strong>.</li>
-      <li>🕵️ The corn was <strong>stolen</strong>.</li>
-      <li>🎯 The farmer wanted to <strong>catch the thief</strong>.</li>
-    </ul>
-  </details>
+<p>
+  <span class="icon">💔</span> But one morning he saw that some corn fruits were gone.
+  He became sad. “Who took my corn?” he asked.
+</p>
 
-  <details>
-    <summary>🧠 The Farmer’s Plan</summary>
-    <ul>
-      <li>🌳 The farmer hid <strong>behind a big mango tree</strong>.</li>
-      <li>🪵 He carried a <strong>stick</strong>.</li>
-      <li>👀 He carefully <strong>watched the corn field</strong>.</li>
-    </ul>
-  </details>
+<p>
+  <span class="icon">🌙</span> That night, he hid behind a big mango tree.
+  He carried a stick. He wanted to catch the one who stole his corn.
+  <span class="icon">🌳</span>
+</p>
 
-  <details>
-    <summary>🚶 The Thief Appears</summary>
-    <ul>
-      <li>👨 A <strong>man</strong> came into the corn field.</li>
-      <li>🚧 He entered through a <strong>broken fence</strong>.</li>
-      <li>🌽 He began to <strong>pick some corn</strong>.</li>
-    </ul>
-  </details>
+<p>
+  <span class="icon">👤</span> Soon a man came.
+  He went into the corn field through a broken part of the fence.
+  He picked some corn.
+  <span class="icon">🚶</span>
+</p>
 
-  <details>
-    <summary>🏃 The Chase</summary>
-    <ul>
-      <li>😱 The man <strong>ran away</strong> when he saw the farmer.</li>
-      <li>🏃‍♂️ The farmer <strong>ran after him</strong>.</li>
-      <li>❌ The farmer <strong>could not catch</strong> the man.</li>
-      <li>🪵 The farmer <strong>threw the stick</strong>.</li>
-    </ul>
-  </details>
+<p>
+  <span class="icon">😠</span> The farmer was angry.
+  He ran after the man. But the man was very fast.
+  The farmer could not catch him.
+  <span class="icon">🏃</span>
+</p>
 
-  <details>
-    <summary>✨ The Magic Change</summary>
-    <ul>
-      <li>🎯 The stick hit the man’s <strong>back</strong>.</li>
-      <li>🐒 The stick <strong>became a tail</strong>.</li>
-      <li>🌴 The man <strong>climbed a tree</strong>.</li>
-      <li>🔽 He became <strong>smaller and smaller</strong>.</li>
-      <li>🐵 The man <strong>turned into a monkey</strong>.</li>
-    </ul>
-  </details>
-</section>
+<p>
+  <span class="icon">🎯</span> The farmer threw the stick.
+  It hit the man on his back.
+  The stick became a tail!
+  <span class="icon">😲</span>
+</p>
+
+<p>
+  <span class="icon">🌲</span> The man climbed a tree.
+  As he went up, he became smaller and smaller.
+  His back grew a tail.
+  He had become a monkey!
+  <span class="icon">🐵</span>
+</p>
+        </div>
+  <br><br>
+  
+  <h2>📝 Story in Simple Steps</h2>
+        <div class="storylines">
+          <div class="storyline-item">
+            <span class="storyline-number">1️⃣</span>
+            A farmer had a corn field with many corn plants that had lots of fruits.
+          </div>
+          
+          <div class="storyline-item">
+            <span class="storyline-number">2️⃣</span>
+            One morning, the farmer found that some of his corn was missing and felt sad.
+          </div>
+          
+          <div class="storyline-item">
+            <span class="storyline-number">3️⃣</span>
+            The farmer decided to hide behind a mango tree at night, holding a stick to catch the thief.
+          </div>
+          
+          <div class="storyline-item">
+            <span class="storyline-number">4️⃣</span>
+            A man came through a broken fence and started picking corn from the field.
+          </div>
+          
+          <div class="storyline-item">
+            <span class="storyline-number">5️⃣</span>
+            The angry farmer chased the man, but the thief was too fast to catch.
+          </div>
+          
+          <div class="storyline-item">
+            <span class="storyline-number">6️⃣</span>
+            The farmer threw his stick and it hit the man's back, turning into a tail.
+          </div>
+          
+          <div class="storyline-item">
+            <span class="storyline-number">7️⃣</span>
+            As the man climbed up a tree, he got smaller and smaller and turned into a monkey.
+          </div>
+        </div>
+      
+<br><br>
+      <!-- STORY REVIEW SECTION -->
+      <div class="section">
+        <h2>🔍 Story Review</h2>
+        
+        <details>
+          <summary>🌟 Main Characters</summary>
+          <div class="review-content">
+            <ul>
+              <li><strong>The Farmer:</strong> He owned the corn field and tried to protect it from thieves</li>
+              <li><strong>The Man/Thief:</strong> He stole corn from the field and later turned into a monkey</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>🏞️ Setting (Where and When)</summary>
+          <div class="review-content">
+            <ul>
+              <li><strong>Place:</strong> A corn field with a mango tree and a fence</li>
+              <li><strong>Time:</strong> The story happens during the day (when corn was discovered missing) and at night (when the farmer hid to catch the thief)</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>🎯 The Problem</summary>
+          <div class="review-content">
+            <ul>
+              <li>Someone was stealing corn from the farmer's field</li>
+              <li>The farmer didn't know who was taking his corn</li>
+              <li>He needed to find and stop the thief</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>🔑 Important Events (Beginning, Middle, End)</summary>
+          <div class="review-content">
+            <p><strong>Beginning:</strong></p>
+            <ul>
+              <li>The farmer was happy with his corn field full of fruits</li>
+              <li>One morning, he discovered some corn was missing</li>
+            </ul>
+            
+            <p><strong>Middle:</strong></p>
+            <ul>
+              <li>The farmer hid behind a mango tree with a stick at night</li>
+              <li>A man came through a broken fence and picked corn</li>
+              <li>The farmer chased the man but couldn't catch him</li>
+            </ul>
+            
+            <p><strong>End:</strong></p>
+            <ul>
+              <li>The farmer threw his stick and hit the man's back</li>
+              <li>The stick became a tail on the man's back</li>
+              <li>The man climbed a tree and turned into a monkey</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>✨ The Magic/Transformation</summary>
+          <div class="review-content">
+            <ul>
+              <li>The stick that hit the man turned into a tail</li>
+              <li>As the man climbed the tree, he became smaller and smaller</li>
+              <li>A tail grew on his back</li>
+              <li>The man completely transformed into a monkey</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>💡 What We Learn</summary>
+          <div class="review-content">
+            <ul>
+              <li>This is a folktale that explains how monkeys came to be</li>
+              <li>Stealing is wrong and can have consequences</li>
+              <li>The story shows a magical transformation as punishment for bad behavior</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>🔤 Important Words to Know</summary>
+          <div class="review-content">
+            <ul>
+              <li><strong>Corn field:</strong> A place where corn plants grow</li>
+              <li><strong>Fruits:</strong> The corn that grows on the plants</li>
+              <li><strong>Fence:</strong> A barrier that surrounds the field</li>
+              <li><strong>Transformation:</strong> When something changes into something else</li>
+              <li><strong>Tail:</strong> The long part at the back of an animal's body</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    
+
+       </section>
             
             
             <!-- ==================== END OF REVIEWER ==================== -->
@@ -1070,156 +1296,219 @@
       
  <!-- ==================== START OF QUIZ ==================== -->
 
+  
+ 
+  // Original Question 1: Time setting of the story
   {
     q: "When did the story happen?",
-    choices: ["A long time ago", "Last year", "Yesterday", "In the future", "A few months ago", "Today"],
-    correctIndex: 0
+    choices: [
+      "Last year",
+      "A few years ago",
+      "A long time ago",
+      "Yesterday",
+      "In the future",
+      "Every year"
+    ],
+    correctIndex: 2
   },
+
+  // Original Question 2: What the farmer owned
   {
-    q: "What did the farmer own?",
-    choices: ["A wide corn field", "A rice field", "A mango farm", "A vegetable garden", "A camote field", "A sugarcane field"],
-    correctIndex: 0
+    q: "What did the farmer have?",
+    choices: [
+      "A rice field",
+      "A camote field",
+      "A corn field",
+      "A vegetable garden",
+      "A banana plantation",
+      "A sugarcane field"
+    ],
+    correctIndex: 2
   },
+
+  // Original Question 3: Description of the corn
   {
-    q: "What kind of corn did the farmer grow?",
-    choices: ["Big and sweet", "Small and sweet", "Dry and hard", "Bitter and small", "Sweet and yellow", "Soft and white"],
+    q: "What words will tell about his corn?",
+    choices: [
+      "Big and sweet",
+      "Small and sweet",
+      "Sweet and yellow",
+      "Big and sour",
+      "Hard and dry",
+      "Green and bitter"
+    ],
     correctIndex: 0
   },
+
+  // Original Question 4: What happened to the corn
   {
-    q: "What problem did the farmer notice?",
-    choices: ["Some corn fruits were gone", "The soil was dry", "The fence was new", "The trees fell down", "The corn dried up", "The corn was rotten"],
+    q: "What happened to his corn?",
+    choices: [
+      "Were stolen",
+      "Destroyed by insects",
+      "Destroyed by the wind",
+      "Burned by fire",
+      "Eaten by birds",
+      "Rotten on the field"
+    ],
     correctIndex: 0
   },
+
+  // Original Question 5: Where the farmer hid
   {
-    q: "What did the farmer want to do?",
-    choices: ["Catch the one who stole his corn", "Sell his corn", "Burn the field", "Plant rice", "Build a house", "Leave the farm"],
-    correctIndex: 0
+    q: "Where did the farmer hide one day?",
+    choices: [
+      "Up the mango tree",
+      "Behind a guava tree",
+      "Behind the mango tree",
+      "Inside the house",
+      "Near the fence",
+      "Beside the corn plants"
+    ],
+    correctIndex: 2
   },
+
+  // Original Question 6: What the farmer carried
   {
-    q: "Where did the farmer hide?",
-    choices: ["Behind a big mango tree", "Inside his house", "Behind a guava tree", "Under the corn plants", "On top of the fence", "Beside the river"],
+    q: "What did he carry?",
+    choices: [
+      "A stick",
+      "Some fruits",
+      "Some stones",
+      "A knife",
+      "A basket",
+      "A rope"
+    ],
     correctIndex: 0
   },
+
+  // Original Question 7: Who entered the corn field
   {
-    q: "What did the farmer carry while hiding?",
-    choices: ["A stick", "A knife", "Some stones", "A rope", "A basket", "A net"],
-    correctIndex: 0
+    q: "Whom did he see come into the corn field?",
+    choices: [
+      "A dog",
+      "A man",
+      "A monkey",
+      "A bird",
+      "A child",
+      "A farmer"
+    ],
+    correctIndex: 1
   },
+
+  // Original Question 8: Action done by the farmer
   {
-    q: "Who came into the corn field?",
-    choices: ["A man", "A dog", "A monkey", "A farmer", "A child", "A bird"],
-    correctIndex: 0
+    q: "What did the farmer do to the man?",
+    choices: [
+      "Caught him",
+      "Threw the stick at him",
+      "Beat him with the stick",
+      "Talked to him",
+      "Helped him",
+      "Ignored him"
+    ],
+    correctIndex: 1
   },
+
+  // Original Question 9: What happened to the stick
   {
-    q: "How did the man enter the corn field?",
-    choices: ["Through a broken part of the fence", "By climbing a tree", "By digging a hole", "Through the gate", "By jumping over a river", "Through the house"],
-    correctIndex: 0
+    q: "What happened with the stick?",
+    choices: [
+      "Was lost",
+      "Was broken",
+      "Became a tail",
+      "Turned into a rope",
+      "Fell on the ground",
+      "Hit the tree"
+    ],
+    correctIndex: 2
   },
+
+  // Original Question 10: What the man became
   {
-    q: "What did the man do in the corn field?",
-    choices: ["Picked some corn", "Planted corn", "Watered the plants", "Fixed the fence", "Cut the trees", "Chased animals"],
+    q: "What happened to the man?",
+    choices: [
+      "Became sick",
+      "Became a monkey",
+      "Became a corn plant",
+      "Ran away",
+      "Fell asleep",
+      "Went home"
+    ],
+    correctIndex: 1
+  },
+
+  // Additional Question 11: How the man entered the field
+  {
+    q: "Where did the man pass through to enter the corn field?",
+    choices: [
+      "A broken part of the fence",
+      "The main gate",
+      "A river",
+      "A hole in the ground",
+      "The farmer’s house",
+      "The mango tree"
+    ],
     correctIndex: 0
   },
+
+  // Additional Question 12: Man’s reaction when he saw the farmer
   {
     q: "What did the man do when he saw the farmer?",
-    choices: ["He ran away", "He sat down", "He fought the farmer", "He apologized", "He laughed", "He slept"],
+    choices: [
+      "Started to run",
+      "Sat down",
+      "Picked more corn",
+      "Climbed the fence",
+      "Talked to the farmer",
+      "Dropped the corn"
+    ],
     correctIndex: 0
   },
+
+  // Additional Question 13: Reason the farmer threw the stick
   {
-    q: "What did the farmer do when he could not catch the man?",
-    choices: ["He threw the stick", "He shouted", "He went home", "He cried", "He climbed a tree", "He sat down"],
+    q: "Why did the farmer throw the stick?",
+    choices: [
+      "He could not catch the man",
+      "He was tired",
+      "He was angry at the corn",
+      "He wanted to break the fence",
+      "He was playing",
+      "He missed the tree"
+    ],
     correctIndex: 0
   },
+
+  // Additional Question 14: Where the man went after being hit
   {
-    q: "Where did the stick hit the man?",
-    choices: ["On his back", "On his head", "On his leg", "On his arm", "On his hand", "On his foot"],
+    q: "Where did the man go after being hit by the stick?",
+    choices: [
+      "Up the tree",
+      "Inside the house",
+      "Out of the field",
+      "Under the fence",
+      "Into the river",
+      "Behind the farmer"
+    ],
     correctIndex: 0
   },
+
+  // Additional Question 15: Change that happened before becoming a monkey
   {
-    q: "What happened to the stick after it hit the man?",
-    choices: ["It became a tail", "It broke", "It disappeared", "It fell to the ground", "It turned into corn", "It became a rope"],
-    correctIndex: 0
-  },
-  {
-    q: "What did the man do after being hit by the stick?",
-    choices: ["He climbed a tree", "He fell down", "He attacked the farmer", "He hid in the corn", "He ran to the river", "He lay on the ground"],
-    correctIndex: 0
-  },
-  {
-    q: "What happened to the man as he went up the tree?",
-    choices: ["He became smaller and smaller", "He became taller", "He became stronger", "He became older", "He became invisible", "He became weaker"],
-    correctIndex: 0
-  },
-  {
-    q: "What did the man finally turn into?",
-    choices: ["A monkey", "A bird", "A dog", "A corn plant", "A farmer", "A tree"],
-    correctIndex: 0
-  },
-  {
-    q: "What part of the man changed into a tail?",
-    choices: ["His back", "His arm", "His head", "His leg", "His hand", "His foot"],
-    correctIndex: 0
-  },
-  {
-    q: "What fruit was missing from the corn plants?",
-    choices: ["Corn fruits", "Mangoes", "Bananas", "Rice grains", "Camote", "Papaya"],
-    correctIndex: 0
-  },
-  {
-    q: "What kind of tree did the farmer hide behind?",
-    choices: ["Mango tree", "Guava tree", "Coconut tree", "Banana tree", "Apple tree", "Pine tree"],
-    correctIndex: 0
-  },
-  {
-    q: "What was the farmer doing while hiding?",
-    choices: ["Watching the corn field", "Sleeping", "Eating", "Planting seeds", "Repairing the fence", "Catching birds"],
-    correctIndex: 0
-  },
-  {
-    q: "Why did the farmer hide?",
-    choices: ["To catch the thief", "To rest", "To scare birds", "To plant corn", "To water plants", "To fix tools"],
-    correctIndex: 0
-  },
-  {
-    q: "What did the broken fence allow?",
-    choices: ["The man to enter the field", "Animals to escape", "Corn to fall", "Water to flow", "Trees to grow", "Wind to pass"],
-    correctIndex: 0
-  },
-  {
-    q: "What tool did the farmer use against the man?",
-    choices: ["A stick", "A knife", "A rope", "A net", "A stone", "A basket"],
-    correctIndex: 0
-  },
-  {
-    q: "Who could not catch the man?",
-    choices: ["The farmer", "The man", "The monkey", "The tree", "The fence", "The corn"],
-    correctIndex: 0
-  },
-  {
-    q: "Where did the man go after being hit?",
-    choices: ["Up the tree", "Into the house", "Into the river", "Behind the fence", "Under the corn plants", "Beside the farmer"],
-    correctIndex: 0
-  },
-  {
-    q: "What change showed that the man was transforming?",
-    choices: ["He grew a tail", "He lost his voice", "He changed clothes", "He dropped corn", "He stopped running", "He sat down"],
-    correctIndex: 0
-  },
-  {
-    q: "What kind of story element is shown by the man changing form?",
-    choices: ["Transformation", "Harvesting", "Planting", "Cooking", "Trading", "Traveling"],
-    correctIndex: 0
-  },
-  {
-    q: "What animal did the man become at the end?",
-    choices: ["Monkey", "Dog", "Cat", "Bird", "Cow", "Horse"],
-    correctIndex: 0
-  },
-  {
-    q: "What was the farmer protecting?",
-    choices: ["His corn field", "His house", "His animals", "His tools", "His family", "His mango tree"],
+    q: "What happened to the man’s body before he became a monkey?",
+    choices: [
+      "He became smaller and smaller",
+      "He became taller and taller",
+      "He became sick",
+      "He became stronger",
+      "He fell down",
+      "He disappeared"
+    ],
     correctIndex: 0
   }
+
+
         
         
 <!-- ==================== END OF QUIZ ==================== -->
